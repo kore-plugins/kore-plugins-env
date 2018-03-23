@@ -10,7 +10,7 @@ class BaseEnv(object):
 
     def __iter__(self):
         for key in self._iter_envvars():
-            yield key.replace(self.prefix, "")
+            yield key.replace(self.prefix, "").lower()
 
     def __getitem__(self, key):
         envvar = self._get_envvar(key)
@@ -20,7 +20,7 @@ class BaseEnv(object):
     def __dict__(self):
         data = {}
         for key in self._iter_envvars():
-            subkey = key.replace(self.prefix, "")
+            subkey = key.replace(self.prefix, "").lower()
             data[subkey] = os.environ[key]
         return data
 

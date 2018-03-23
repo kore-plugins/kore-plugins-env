@@ -61,7 +61,7 @@ class TestEnvConfig(object):
         result = dict(section)
 
         assert result == {
-            'KEY': 'value',
+            'key': 'value',
         }
 
     def test_get_value(self, monkeypatch):
